@@ -1,13 +1,13 @@
 # Trashure Backend
 
-Backend untuk aplikasi **Trashure**, sebuah platform untuk mengelola limbah dengan fitur autentikasi, pemindaian limbah, pengelolaan saldo, dan riwayat pemindaian. Dibangun menggunakan **Node.js**, **Express.js**, dan mendukung unggah gambar untuk pemindaian limbah.
+Backend untuk aplikasi **Trashure**, sebuah platform untuk mengelola sampah anorganik maupun organik dengan fitur autentikasi, pemindaian sampah, pengelolaan saldo, dan riwayat pemindaian. Dibangun menggunakan **Node.js**, **Express.js**, dan mendukung unggah gambar untuk pemindaian sampah.
 
 ## Fitur
 
 - **Autentikasi Pengguna**: Registrasi dan login pengguna.
-- **Pemindaian Limbah**: Unggah gambar untuk mengidentifikasi jenis limbah.
+- **Pemindaian Limbah**: Unggah gambar untuk mengidentifikasi jenis sampah.
 - **Manajemen Saldo**: Melihat saldo pengguna.
-- **Riwayat Pemindaian**: Melihat riwayat pemindaian limbah.
+- **Riwayat Pemindaian**: Melihat riwayat pemindaian sampah.
 - **API Health Check**: Endpoint untuk memeriksa status server.
 - **Middleware Autentikasi**: Melindungi endpoint sensitif.
 
@@ -55,7 +55,7 @@ trashure-backend/
 │   ├── app.js                # Entry point aplikasi
 │   ├── routes/              # Definisi rute API
 │   │   ├── authRouter.js    # Rute untuk autentikasi
-│   │   ├── scanRouter.js    # Rute untuk pemindaian limbah
+│   │   ├── scanRouter.js    # Rute untuk pemindaian sampah
 │   │   ├── saldoRouter.js   # Rute untuk manajemen saldo
 │   │   └── historyRouter.js # Rute untuk riwayat pemindaian
 │   ├── controllers/         # Logika untuk menangani permintaan API
@@ -76,7 +76,7 @@ trashure-backend/
 | POST   | `/auth/login`       | Login pengguna                | -                 |
 | GET    | `/saldo`            | Mendapatkan saldo pengguna    | `authMiddleware`  |
 | GET    | `/history`          | Mendapatkan riwayat pemindaian| `authMiddleware`  |
-| POST   | `/scan/scan`        | Memindai limbah via gambar    | `authMiddleware`, `multer` |
+| POST   | `/scan/scan`        | Memindai sampah via gambar    | `authMiddleware`, `multer` |
 
 ## Detail Endpoint
 
@@ -85,7 +85,7 @@ trashure-backend/
 - **POST /auth/login**: Mengautentikasi pengguna (dikelola oleh `authController.login`).
 - **GET /saldo**: Mengembalikan saldo pengguna (memerlukan autentikasi).
 - **GET /history**: Mengembalikan riwayat pemindaian pengguna (memerlukan autentikasi).
-- **POST /scan/scan**: Mengunggah gambar untuk memindai limbah (memerlukan autentikasi dan unggah file via `multer`).
+- **POST /scan/scan**: Mengunggah gambar untuk memindai sampah (memerlukan autentikasi dan unggah file via `multer`).
 
 ## Dependensi Utama
 
